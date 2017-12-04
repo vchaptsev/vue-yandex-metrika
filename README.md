@@ -40,13 +40,11 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
     import VueRouter from 'vue-router'
     import VueYandexMetrika from 'vue-yandex-metrika'
 
-    const router = new VueRouter({
-      router: // your routes
-    })
+    const router = new VueRouter({...}) // your routes
 
     Vue.use(VueYandexMetrika, {
         id: XXXXXXXX,
-        router,
+        router: router,
         ignoreRoutes: [],
         skipSamePath: false
     })
@@ -59,5 +57,5 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 | ------------------- | ---------- | ----------------------------------------------------------------- |
 | id                  | True       | Your tracking id                                                  |
 | router              | True       | VueRouter object                                                  |  
-| ignoreRoutes        | False      | List of ignored router names                                      |
+| ignoreRoutes        | False      | List of ignored routes names                                      |
 | skipSamePath        | False      | Do not track a page visit if previous and next routes URLs match  |
