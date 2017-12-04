@@ -4,7 +4,7 @@ import config from './config'
 export default function bootstrap () {
     if (typeof document === 'undefined') {return}
 
-    const { id } = config
+    const { id, ignoreRoutes } = config
 
     if (!id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
 
@@ -20,7 +20,13 @@ export default function bootstrap () {
         var metrika = new Ya.Metrika({id: id})
 
         // Run page autotracking
-        config.router.afterEach(function (to, from) {metrika.hit(to.path)})
+        config.router.afterEach(function (to, from) {
+
+            // check if route in ignoreRoutes
+            if (!ignoreRoutes.includes(to.name)) {
+                metrika.hit(to.path)
+            }
+        })
     })
 
     .catch(error => {console.error(error)})

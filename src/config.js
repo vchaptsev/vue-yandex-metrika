@@ -1,6 +1,11 @@
 import { merge } from './helpers'
 
-const defaultConfig = {id: null, router: null}
+const defaultConfig = {
+    id: null,
+    router: null,
+    ignoreRoutes: []
+}
+
 let config = { ...defaultConfig }
 
 export function updateConfig (params) {

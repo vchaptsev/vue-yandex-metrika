@@ -21,7 +21,7 @@ Installation
 Install with yarn_::
 
   $ yarn add vue-yandex-metrika
-  
+
 Install with npm::
 
   $ npm install vue-yandex-metrika --save
@@ -31,7 +31,7 @@ Usage
 ------
 
 Pass the VueRouter instance to the plugin and let it handle everything for you::
-    
+
     // your main.js
 
     import Vue from 'vue'
@@ -41,9 +41,25 @@ Pass the VueRouter instance to the plugin and let it handle everything for you::
     const router = new VueRouter({
       router: // your routes
     })
-  
-    Vue.use(VueYandexMetrika, {id: XXXXXXXX, router})
 
+    Vue.use(VueYandexMetrika, {
+        id: XXXXXXXX,
+        router,
+        ignoreRoutes: []
+    })
+
+
+**Options**:
+
++---------------------+------------+-------------------------------+
+| Name                | Required   | Description                   |
++=====================+============+===============================+
+| id                  | True       | Your tracking id              |
++---------------------+------------+-------------------------------+
+| router              | True       | VueRouter object              |  
++---------------------+------------+-------------------------------+
+| ignoreRoutes        | False      | List of ignored router names  |
++---------------------+------------+-------------------------------+
 
 
 .. _`Yarn`: https://yarnpkg.com
