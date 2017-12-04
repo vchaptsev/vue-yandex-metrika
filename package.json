@@ -1,0 +1,67 @@
+{
+  "name": "vue-yandex-metrika",
+  "version": "0.1.0",
+  "description": "Yandex Metrika plugin for Vue",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vchaptsev/vue-yandex-metrika"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "dev": "node ./config/scripts/dev.js",
+    "build": "node ./config/scripts/build.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "keywords": [
+    "vue",
+    "tracking",
+    "Yandex",
+    "yandex",
+    "Yandex Metrica",
+    "yandex metrica",
+    "Yandex Metrika",
+    "yandex metrika",
+    "yandex tracking",
+    "vue-yandex-metrika",
+    "vue-yandex-metrica",
+    "Яндекс",
+    "яндекс",
+    "Яндекс Метрика",
+    "яндекс метрика"
+  ],
+  "main": "dist/vue-yandex-metrika.js",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "Victor Chaptsev",
+    "email": "victor@chaptsev.ru"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vchaptsev/vue-yandex-metrika/issues"
+  },
+  "homepage": "https://github.com/vchaptsev/vue-yandex-metrika#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-blue": "^1.5.0",
+    "commitizen": "^2.9.6",
+    "compression-webpack-plugin": "^1.0.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "ora": "^1.3.0",
+    "semantic-release": "^8.2.0",
+    "vue": "^2.5.9",
+    "vue-router": "^3.0.1",
+    "webpack": "^3.9.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {}
+}
