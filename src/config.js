@@ -3,7 +3,8 @@ import { merge } from './helpers'
 const defaultConfig = {
     id: null,
     router: null,
-    ignoreRoutes: []
+    ignoreRoutes: [],
+    skipSamePath: false
 }
 
 let config = { ...defaultConfig }
