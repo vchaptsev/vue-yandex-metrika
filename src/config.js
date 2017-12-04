@@ -3,7 +3,7 @@ import { merge } from './helpers'
 const defaultConfig = {id: null, router: null}
 let config = { ...defaultConfig }
 
-export function update (params) {
+export function updateConfig (params) {
     merge(config, params)
 }
 

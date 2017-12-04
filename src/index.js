@@ -1,7 +1,7 @@
-import { update } from './config'
+import { updateConfig } from './config'
 import bootstrap from './bootstrap'
 
 export default function install (Vue, options = {}) {
-    update(options)
+    updateConfig(options)
     bootstrap()
 }
