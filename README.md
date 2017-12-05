@@ -16,11 +16,11 @@
 
 # Vue Yandex Metrika
 
-**vue-yandex-metrika** allows you to send data about visited pages to [Yandex Metrika](https://metrika.yandex.ru).
+**vue-yandex-metrika** allows you to send data about visited pages to [Yandex Metrika].
 
 ## Installation
 
-Install with [yarn](https://yarnpkg.com):
+Install with [yarn]:
 
   ```bash
   $ yarn add vue-yandex-metrika
@@ -56,14 +56,22 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 
 **Options**:
 
-| Name                | Required   | Description                                                       |
-| ------------------- | ---------- | ----------------------------------------------------------------- |
-| id                  | True       | Your tracking id                                                  |
-| router              | True       | VueRouter object                                                  |  
-| ignoreRoutes        | False      | List of ignored routes names                                      |
-| skipSamePath        | False      | Do not track a page visit if previous and next routes URLs match  |
+| Name                | Description                                                       | Required   | Default                                          |
+| ------------------- | ----------------------------------------------------------------- | ---------- | ------------------------------------------------ |
+| id                  | Your tracking id                                                  | True       | null                                             |
+| router              | VueRouter object                                                  | True       | null                                             |
+| env                 | "production" or "development"                                     | False      | [process.env.NODE_ENV] &#124;&#124; "production" |
+| onlyProd            | Do not track a page visit if env !== "production"                 | False      | true                                             |
+| ignoreRoutes        | List of ignored routes names                                      | False      | []                                               |
+| skipSamePath        | Do not track a page visit if previous and next routes URLs match  | False      | false                                            |
 
 
-You are also able to use [Metrika API](https://yandex.ru/support/metrika/objects/method-reference.html) wherever you want to:
+You are also able to use [Metrika API] wherever you want to:
 
     this.$metrika.hit('path')
+
+
+[Yandex Metrika]: https://metrika.yandex.ru
+[yarn]: https://yarnpkg.com
+[process.env.NODE_ENV]: https://forum.vuejs.org/t/checking-development-or-production-mode-in-browser/8650
+[Metrika API]: https://yandex.ru/support/metrika/objects/method-reference.html
