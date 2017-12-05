@@ -40,8 +40,8 @@ export function loadScript () {
 export function createMetrika (Vue) {
 
     // Creates Metrika
-    if (config.onlyProd && config.env !== "production") {
-        return console.log('[vue-yandex-metrika] Tracking is disabled, because onlyProd option is true and env option is', config.env)
+    if (config.productionOnly && config.env !== "production") {
+        return console.log('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env)
     }
 
     return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: config.id})

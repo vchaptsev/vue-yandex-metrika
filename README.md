@@ -55,14 +55,14 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 
 **Options**:
 
-| Name                | Description                                                       | Required   | Default                                          |
-| ------------------- | ----------------------------------------------------------------- | ---------- | ------------------------------------------------ |
-| id                  | Your tracking id                                                  | True       | null                                             |
-| router              | VueRouter object                                                  | True       | null                                             |
-| env                 | "production" or "development"                                     | False      | [process.env.NODE_ENV] &#124;&#124; "production" |
-| onlyProd            | Do not track a page visit if env !== "production"                 | False      | true                                             |
-| ignoreRoutes        | List of ignored routes names                                      | False      | []                                               |
-| skipSamePath        | Do not track a page visit if previous and next routes URLs match  | False      | false                                            |
+| Name           | Description                                                       | Required | Default                                          |
+| -------------- | ----------------------------------------------------------------- | -------- | ------------------------------------------------ |
+| id             | Your tracking id                                                  | True     | null                                             |
+| router         | VueRouter object                                                  | True     | null                                             |
+| env            | "production" or "development"                                     | False    | [process.env.NODE_ENV] &#124;&#124; "production" |
+| productionOnly | Do not track a page visit if env !== "production"                 | False    | true                                             |
+| ignoreRoutes   | List of ignored routes names                                      | False    | []                                               |
+| skipSamePath   | Do not track a page visit if previous and next routes URLs match  | False    | false                                            |
 
 
 You are also able to use [Metrika API] wherever you want to:
