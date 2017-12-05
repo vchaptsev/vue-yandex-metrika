@@ -9,7 +9,7 @@ export function updateConfig (params) {
 }
 
 
-export function checkOptions () {
+export function checkConfig () {
 
     // Checks if all required options are presented
     if (typeof document === 'undefined') {return}
