@@ -40,7 +40,7 @@ export default function bootstrap (Vue) {
             if (ignoreRoutes.includes(to.name)) {return}
 
             // track page visit
-            Vue.$metrika.hit(to.path)
+            Vue.$metrika.hit(to.path, {referer: from.path})
         })
     })
 
