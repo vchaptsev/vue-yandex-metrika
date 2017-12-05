@@ -47,9 +47,8 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 
     Vue.use(VueYandexMetrika, {
         id: XXXXXXXX,
-        router: router,
-        ignoreRoutes: [],
-        skipSamePath: false
+        router: router
+        // other options
     })
 
 
