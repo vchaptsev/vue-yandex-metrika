@@ -4,6 +4,7 @@ export default function bootstrap (Vue) {
     if (typeof document === 'undefined') {return}
 
     if (!config.id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
+    if (!config.router) {throw new Error('[vue-yandex-metrika] Please pass a router array')}
 
     // Load script (creates DOM-element)
     return new Promise((resolve, reject) => {
@@ -35,6 +36,7 @@ export default function bootstrap (Vue) {
 
         // Run page autotracking
         config.router.afterEach(function (to, from) {
+
             // check if route is in ignoreRoutes
             if (config.ignoreRoutes.includes(to.name)) {return}
 
