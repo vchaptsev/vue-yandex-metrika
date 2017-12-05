@@ -65,5 +65,9 @@
     "webpack": "^3.9.1",
     "webpack-merge": "^4.1.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "blue-jest": "^1.5.0",
+    "jest": "^21.2.1",
+    "jest-cli": "^21.2.1"
+  }
 }
