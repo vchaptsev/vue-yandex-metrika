@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { updateConfig, checkConfig, loadScript, createMetrika, startTracking } from './helpers'
 
 export default function install (Vue, options = {}) {

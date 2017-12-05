@@ -12,16 +12,16 @@ export function updateConfig (params) {
 export function checkConfig () {
 
     // Checks if all required options are presented
-    if (typeof document === 'undefined') {return}
+    /* istanbul ignore next */  if (typeof document === 'undefined') {return}
     if (!config.id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
     if (!config.router) {throw new Error('[vue-yandex-metrika] Please pass a router array')}
 }
 
-
 export function loadScript () {
+    /* istanbul ignore function */
 
     // Loads Metrika script
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {/* istanbul ignore next */
         var head = document.head || document.getElementsByTagName('head')[0]
         const script = document.createElement('script')
 
@@ -41,7 +41,8 @@ export function createMetrika (Vue) {
 
     // Creates Metrika
     if (config.productionOnly && config.env !== "production") {
-        return console.log('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env)
+        console.log('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env)
+        return
     }
 
     return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: config.id})

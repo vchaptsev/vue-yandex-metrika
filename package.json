@@ -10,6 +10,8 @@
     "commit": "git-cz",
     "dev": "node ./config/scripts/dev.js",
     "build": "node ./config/scripts/build.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "config": {
