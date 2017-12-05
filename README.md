@@ -40,7 +40,7 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
     import VueRouter from 'vue-router'
     import VueYandexMetrika from 'vue-yandex-metrika'
 
-    const router = new VueRouter({...}) // your routes
+    const router = new VueRouter({...}) // your routes                         
 
     Vue.use(VueYandexMetrika, {
         id: XXXXXXXX,

@@ -1,7 +1,6 @@
-import { loadScript } from './helpers'
 import config from './config'
 
-export default function bootstrap () {
+export default function bootstrap (Vue) {
     if (typeof document === 'undefined') {return}
 
     const { id, ignoreRoutes, skipSamePath } = config
@@ -10,14 +9,26 @@ export default function bootstrap () {
 
     // Load script (creates DOM-element)
     return new Promise((resolve, reject) => {
-        return loadScript()
-            .then(() => {resolve()})
-            .catch(() => {reject('[vue-yandex-metrika] It\'s not possible to load Yandex Metrika script')})
+        return new Promise((resolve, reject) => {
+            var head = document.head || document.getElementsByTagName('head')[0]
+            const script = document.createElement('script')
+
+            script.async = true
+            script.charset = 'utf8'
+            script.src = 'https://mc.yandex.ru/metrika/watch.js'
+
+            head.appendChild(script)
+
+            script.onload = resolve
+            script.onerror = reject
+        })
+        .then(() => {resolve()})
+        .catch(() => {reject('[vue-yandex-metrika] It\'s not possible to load Yandex Metrika script')})
     })
 
     .then(() => {
         // Create Metrika
-        var metrika = new Ya.Metrika({id: id})
+        Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: id})
 
         // Run page autotracking
         config.router.afterEach(function (to, from) {
