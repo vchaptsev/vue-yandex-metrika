@@ -5,7 +5,7 @@ let config = {
     env: null,
     productionOnly: true,
     ignoreRoutes: [],
-    skipSamePath: false
+    skipSamePath: true
 }
 
 export default config
