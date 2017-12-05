@@ -59,3 +59,8 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 | router              | True       | VueRouter object                                                  |  
 | ignoreRoutes        | False      | List of ignored routes names                                      |
 | skipSamePath        | False      | Do not track a page visit if previous and next routes URLs match  |
+
+
+You are also able to use [Metrika API](https://yandex.ru/support/metrika/objects/method-reference.html) wherever you want to:
+
+    this.$metrika.hit('path')

@@ -3,5 +3,6 @@ import bootstrap from './bootstrap'
 
 export default function install (Vue, options = {}) {
     updateConfig(options)
-    bootstrap()
+
+    bootstrap(Vue)
 }

@@ -36,11 +36,11 @@ export default function bootstrap (Vue) {
             //  do not track page visit if previous and next routes URLs match
             if (skipSamePath && to.path == from.path) {return}
 
-            // check if route in ignoreRoutes
+            // check if route is in ignoreRoutes
             if (ignoreRoutes.includes(to.name)) {return}
 
             // track page visit
-            metrika.hit(to.path)
+            Vue.$metrika.hit(to.path)
         })
     })
 
