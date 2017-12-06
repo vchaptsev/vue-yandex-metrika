@@ -39,12 +39,29 @@ export function loadScript () {
 
 export function createMetrika (Vue) {
 
-    // Creates Metrika
     if (config.productionOnly && config.env !== "production") {
         console.log('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env)
-        return
+        console.log('[vue-yandex-metrika] You will see all metrika actions in console.log()')
+        console.log('[vue-yandex-metrika] If you want to start tracking, you need to set env option to "production" or productionOnly option to false')
+
+        // Mock metrika
+        /* istanbul ignore next */
+        return {
+            addFileExtension() {console.log('[vue-yandex-metrika] addFileExtension:', arguments)},
+            extLink() {console.log('[vue-yandex-metrika] extLink:', arguments)},
+            file() {console.log('[vue-yandex-metrika] file:', arguments)},
+            getClientID() {console.log('[vue-yandex-metrika] getClientID:', arguments)},
+            hit() {console.log('[vue-yandex-metrika] hit:', arguments)},
+            notBounce() {console.log('[vue-yandex-metrika] notBounce:', arguments)},
+            params() {console.log('[vue-yandex-metrika] params:', arguments)},
+            reachGoal() {console.log('[vue-yandex-metrika] reachGoal:', arguments)},
+            replacePhones() {console.log('[vue-yandex-metrika] replacePhones:', arguments)},
+            setUserID() {console.log('[vue-yandex-metrika] setUserID:', arguments)},
+            userParam() {console.log('[vue-yandex-metrika] userParam:', arguments)}
+        }
     }
 
+    // Creates Metrika
     return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: config.id})
 }
 
