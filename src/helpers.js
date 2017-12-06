@@ -4,7 +4,6 @@ import config from './config'
 export function updateConfig (params) {
 
     // Merges default config and plugin options
-    params['env'] = params['env'] || process.env.NODE_ENV || "production"
     Object.keys(params).forEach(function (key) {config[key] = params[key]})
 }
 

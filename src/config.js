@@ -2,7 +2,7 @@ let config = {
     id: null,
     router: null,
 
-    env: null,
+    env: 'development',
     productionOnly: true,
     ignoreRoutes: [],
     skipSamePath: true

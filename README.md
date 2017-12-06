@@ -51,7 +51,8 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 
     Vue.use(VueYandexMetrika, {
         id: XXXXXXXX,
-        router: router
+        router: router,
+        env: process.env.NODE_ENV
         // other options
     })
 
@@ -62,7 +63,7 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
 | -------------- | ----------------------------------------------------------------- | -------- | ------------------------------------------------ |
 | id             | Your tracking id                                                  | True     | null                                             |
 | router         | VueRouter object                                                  | True     | null                                             |
-| env            | "production" or "development"                                     | False    | [process.env.NODE_ENV] &#124;&#124; "production" |
+| env            | "production" or "development"                                     | False    | "development"                                    |
 | productionOnly | Do not track a page visit if env is not "production"              | False    | true                                             |
 | skipSamePath   | Do not track a page visit if previous and next routes URLs match  | False    | true                                             |
 | ignoreRoutes   | List of ignored routes names                                      | False    | []                                               |

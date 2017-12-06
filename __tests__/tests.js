@@ -37,7 +37,7 @@ describe('checkConfig', () => {
 describe('checkConfig', () => {
     it ('should pass checkConfig', () => {
         expect(() => {
-            Vue.use(VueYandexMetrika, {id: 1, router: router, productionOnly: false})
+            Vue.use(VueYandexMetrika, {id: 1, router, productionOnly: false})
         }).not.toThrowError()
     })
 })
@@ -45,18 +45,8 @@ describe('checkConfig', () => {
 
 describe('updateConfig', () => {
     it ('env by default', () => {
-        process.env.NODE_ENV = ''
         helpers.updateConfig({})
-        process.env.NODE_ENV = 'test' // restore default value
-        expect(config.env).toBe('production')
-    })
-})
-
-
-describe('updateConfig', () => {
-    it ('env from process.env', () => {
-        helpers.updateConfig({})
-        expect(config.env).toBe('test')
+        expect(config.env).toBe('development')
     })
 })
 
@@ -71,15 +61,16 @@ describe('updateConfig', () => {
 
 describe('tracking', () => {
     it ('productionOnly', () => {
-        helpers.updateConfig({id: 1, router: router, productionOnly: true, env: 'development'})
-        expect(helpers.createMetrika(Vue)).toBe(undefined)
+        helpers.updateConfig({id: 1, router, productionOnly: true, env: 'development'})
+        var metrika = helpers.createMetrika(Vue)
+        helpers.startTracking(metrika)
     })
 })
 
 
 describe('tracking', () => {
     it ('skipSamePath', () => {
-        helpers.updateConfig({id: 1, router: router, productionOnly: false})
+        helpers.updateConfig({id: 1, router, productionOnly: false})
         var metrika = helpers.createMetrika(Vue)
         helpers.startTracking(metrika)
         router.push('/init') // init
@@ -90,7 +81,7 @@ describe('tracking', () => {
 
 describe('tracking', () => {
     it ('ignoreRoutes', () => {
-        helpers.updateConfig({id: 1, router: router, productionOnly: false, ignoreRoutes: ['test']})
+        helpers.updateConfig({id: 1, router, productionOnly: false, ignoreRoutes: ['test']})
         var metrika = helpers.createMetrika(Vue)
         helpers.startTracking(metrika)
         router.push('/init') // init
@@ -101,7 +92,7 @@ describe('tracking', () => {
 
 describe('tracking', () => {
     it ('metrika.hit', () => {
-        helpers.updateConfig({id: 1, router: router, productionOnly: false})
+        helpers.updateConfig({id: 1, router, productionOnly: false})
         var metrika = helpers.createMetrika(Vue)
         helpers.startTracking(metrika)
         router.push('/init') // init
