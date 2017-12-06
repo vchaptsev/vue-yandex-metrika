@@ -24,12 +24,9 @@ describe('checkConfig', () => {
     })
 })
 
-
 describe('checkConfig', () => {
-    it ('should throw an error if the routes are missing', () => {
-        expect(() => {
-            Vue.use(VueYandexMetrika, {id: 1})
-        }).toThrowError()
+    it ('manualMode notification', () => {
+        Vue.use(VueYandexMetrika, {id: 1})
     })
 })
 
@@ -55,6 +52,15 @@ describe('updateConfig', () => {
     it ('env from plugin options', () => {
         helpers.updateConfig({env: 'plugin'})
         expect(config.env).toBe('plugin')
+    })
+})
+
+
+describe('tracking', () => {
+    it ('manualMode', () => {
+        helpers.updateConfig({id: 1})
+        var metrika = helpers.createMetrika(Vue)
+        helpers.startTracking(metrika)
     })
 })
 

@@ -39,15 +39,17 @@ Install with npm:
 
 ## Usage
 
-Pass the VueRouter instance to the plugin and let it handle everything for you:
+#### Autotracking
+
+Pass the VueRouter instance to the plugin and let it handle everything for you ([Metrika API] is also aviable):
 
     // your main.js
 
     import Vue from 'vue'
     import VueRouter from 'vue-router'
-    import VueYandexMetrika from 'vue-yandex-metrika'
+    import VueYandexMetrika from 'vue-yandex-metrika'                               
 
-    const router = new VueRouter({...}) // your routes                         
+    const router = new VueRouter({...}) // your routes
 
     Vue.use(VueYandexMetrika, {
         id: XXXXXXXX,
@@ -57,24 +59,42 @@ Pass the VueRouter instance to the plugin and let it handle everything for you:
     })
 
 
-**Options**:
 
-| Name           | Description                                                       | Required | Default                                          |
-| -------------- | ----------------------------------------------------------------- | -------- | ------------------------------------------------ |
-| id             | Your tracking id                                                  | True     | null                                             |
-| router         | VueRouter object                                                  | True     | null                                             |
-| env            | "production" or "development"                                     | False    | "development"                                    |
-| productionOnly | Do not track a page visit if env is not "production"              | False    | true                                             |
-| skipSamePath   | Do not track a page visit if previous and next routes URLs match  | False    | true                                             |
-| ignoreRoutes   | List of ignored routes names                                      | False    | []                                               |
+#### Manual tracking
+
+Works without router: [Metrika API]
+
+    // your main.js
+
+    import Vue from 'vue'
+    import VueYandexMetrika from 'vue-yandex-metrika'                               
+
+    Vue.use(VueYandexMetrika, {
+        id: XXXXXXXX,
+        env: process.env.NODE_ENV
+        // other options
+    })
+
+    =====================================================
+
+    // your code
+
+    this.$metrika.hit(path)
 
 
-You are also able to use [Metrika API] wherever you want to:
+#### Options:
 
-    this.$metrika.hit('path')
+| Name           | Description                                                                          | Required | Default       |
+| -------------- | ------------------------------------------------------------------------------------ | -------- | ------------- |
+| id             | Your tracking id                                                                     | True     | null          |
+| router         | **Autotracking** if the router is passed, otherwise: **manual tracking**             | False    | null          |
+| env            | "production" or "development"                                                        | False    | "development" |
+| productionOnly | Run in **DEBUG mode** (API calls replaced by console.log) if env is not "production" | False    | true          |
+| skipSamePath   | Do not track a page visit if previous and next routes URLs match                     | False    | true          |
+| ignoreRoutes   | List of ignored routes names                                                         | False    | []            |
+
 
 
 [Yandex Metrika]: https://metrika.yandex.ru
 [yarn]: https://yarnpkg.com
-[process.env.NODE_ENV]: https://forum.vuejs.org/t/checking-development-or-production-mode-in-browser/8650
 [Metrika API]: https://yandex.ru/support/metrika/objects/method-reference.html

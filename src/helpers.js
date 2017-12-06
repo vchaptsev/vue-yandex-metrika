@@ -9,15 +9,14 @@ export function updateConfig (params) {
 
 
 export function checkConfig () {
+    // Checks if config is valid
 
-    // Checks if all required options are presented
-    /* istanbul ignore next */  if (typeof document === 'undefined') {return}
-    if (!config.id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
-    if (!config.router) {throw new Error('[vue-yandex-metrika] Please pass a router array')}
+    /* istanbul ignore next */ if (typeof document === 'undefined') {return}
+    /* istanbul ignore next */ if (!config.id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
+    /* istanbul ignore next */ if (!config.router && config.env !== 'production') {return console.warn('[vue-yandex-metrika] Router is not passed, autotracking is disabled')}
 }
 
 export function loadScript () {
-    /* istanbul ignore function */
 
     // Loads Metrika script
     return new Promise((resolve, reject) => {/* istanbul ignore next */
@@ -39,9 +38,7 @@ export function loadScript () {
 export function createMetrika (Vue) {
 
     if (config.productionOnly && config.env !== "production") {
-        console.log('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env)
-        console.log('[vue-yandex-metrika] You will see all metrika actions in console.log()')
-        console.log('[vue-yandex-metrika] If you want to start tracking, you need to set env option to "production" or productionOnly option to false')
+        console.warn('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env, '\nYou will see all metrika actions in console.log()\nIf you want to start tracking, you need to set env option to "production" or productionOnly option to false')
 
         // Mock metrika
         /* istanbul ignore next */
@@ -67,16 +64,18 @@ export function createMetrika (Vue) {
 
 export function startTracking (metrika) {
 
-    // Starts page autotracking
-    config.router.afterEach(function (to, from) {
+    // Starts autotracking if router is passed
+    if (config.router) {
+        config.router.afterEach(function (to, from) {
 
-        // check if route is in ignoreRoutes
-        if (config.ignoreRoutes.includes(to.name)) {return}
+            // check if route is in ignoreRoutes
+            if (config.ignoreRoutes.includes(to.name)) {return}
 
-        // do not track page visit if previous and next routes URLs match
-        if (config.skipSamePath && to.path == from.path) {return}
+            // do not track page visit if previous and next routes URLs match
+            if (config.skipSamePath && to.path == from.path) {return}
 
-        // track page visit
-        metrika.hit(to.path, {referer: from.path})
-    })
+            // track page visit
+            metrika.hit(to.path, {referer: from.path})
+        })
+    }
 }
