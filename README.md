@@ -39,7 +39,7 @@ Install with [npm]:
 
 ## Ways to use
 
-#### <a name="autotracking">Autotracking</a>
+### <a name="autotracking">Autotracking</a>
 
 Pass the` VueRouter` instance to the plugin and let it handle everything for you ([Metrika API] is also available):
 
@@ -59,7 +59,7 @@ Pass the` VueRouter` instance to the plugin and let it handle everything for you
 
 
 
-#### <a name="manual">Manual tracking</a>
+### <a name="manual">Manual tracking</a>
 
 Works without router: [Metrika API]
 
@@ -79,7 +79,7 @@ ___
     this.$metrika.hit(path)
 
 
-#### <a name="debug">DEBUG</a>
+### <a name="debug">DEBUG</a>
 
 API calls are replaced by `console.log()`
 
