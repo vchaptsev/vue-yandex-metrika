@@ -30,21 +30,20 @@ Install with [yarn]:
   $ yarn add vue-yandex-metrika
   ```
 
-Install with npm:
+Install with [npm]:
 
   ```bash
   $ npm install vue-yandex-metrika --save
   ```
 
 
-## Usage
+## Ways to use
 
-#### Autotracking
+#### <a name="autotracking">Autotracking</a>
 
-Pass the VueRouter instance to the plugin and let it handle everything for you ([Metrika API] is also aviable):
+Pass the` VueRouter` instance to the plugin and let it handle everything for you ([Metrika API] is also available):
 
     // your main.js
-
     import Vue from 'vue'
     import VueRouter from 'vue-router'
     import VueYandexMetrika from 'vue-yandex-metrika'                               
@@ -60,12 +59,11 @@ Pass the VueRouter instance to the plugin and let it handle everything for you (
 
 
 
-#### Manual tracking
+#### <a name="manual">Manual tracking</a>
 
 Works without router: [Metrika API]
 
     // your main.js
-
     import Vue from 'vue'
     import VueYandexMetrika from 'vue-yandex-metrika'                               
 
@@ -75,11 +73,15 @@ Works without router: [Metrika API]
         // other options
     })
 
-    =====================================================
+___
 
     // your code
-
     this.$metrika.hit(path)
+
+
+#### <a name="debug">DEBUG</a>
+
+API calls are replaced by `console.log()`
 
 
 #### Options:
@@ -97,4 +99,5 @@ Works without router: [Metrika API]
 
 [Yandex Metrika]: https://metrika.yandex.ru
 [yarn]: https://yarnpkg.com
+[npm]: https://npmjs.com
 [Metrika API]: https://yandex.ru/support/metrika/objects/method-reference.html
