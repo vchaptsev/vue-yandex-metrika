@@ -37,10 +37,16 @@ export function loadScript () {
 
 export function createMetrika (Vue) {
 
-    if (config.productionOnly && config.env !== "production") {
-        console.warn('[vue-yandex-metrika] Tracking is disabled, because productionOnly option is true and env option is', config.env, '\nYou will see all metrika actions in console.log()\nIf you want to start tracking, you need to set env option to "production" or productionOnly option to false')
+    if (config.env === "production") {
+
+        // Creates Metrika
+        return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: config.id})
+
+    } else {
 
         // Mock metrika
+        console.warn('[vue-yandex-metrika] Tracking is disabled, because env option is not "production"\nYou will see all metrika actions in console.log()\nIf you want to start tracking, you need to set env option to "production" or productionOnly option to false')
+
         /* istanbul ignore next */
         return {
             addFileExtension() {console.log('[vue-yandex-metrika] addFileExtension:', arguments)},
@@ -56,9 +62,6 @@ export function createMetrika (Vue) {
             userParam() {console.log('[vue-yandex-metrika] userParam:', arguments)}
         }
     }
-
-    // Creates Metrika
-    return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: config.id})
 }
 
 

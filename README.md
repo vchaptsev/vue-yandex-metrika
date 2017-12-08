@@ -86,14 +86,13 @@ API calls are replaced by `console.log()`
 
 #### Options:
 
-| Name           | Description                                                                          | Required | Default       |
-| -------------- | ------------------------------------------------------------------------------------ | -------- | ------------- |
-| id             | Your tracking id                                                                     | True     | null          |
-| router         | **Autotracking** if the router is passed, otherwise: **manual tracking**             | False    | null          |
-| env            | "production" or "development"                                                        | False    | "development" |
-| productionOnly | Run in **DEBUG mode** (API calls replaced by console.log) if env is not "production" | False    | true          |
-| skipSamePath   | Do not track a page visit if previous and next routes URLs match                     | False    | true          |
-| ignoreRoutes   | List of ignored routes names                                                         | False    | []            |
+| Name           | Description                                                                                           | Required | Default       |
+| -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------------- |
+| id             | Your tracking id                                                                                      | True     | null          |
+| router         | [Autotracking](#autotracking) if the router is passed, otherwise: [manual tracking](#manual-tracking) | False    | null          |
+| env            | If env is not "production": [DEBUG](#debug)                                                           | False    | development   |
+| ignoreRoutes   | List of ignored routes names                                                                          | False    | []            |
+| skipSamePath   | Do not track a page visit if previous and next routes URLs match                                      | False    | true          |
 
 
 
