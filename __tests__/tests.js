@@ -66,8 +66,16 @@ describe('tracking', () => {
 
 
 describe('tracking', () => {
+    it ('debug', () => {
+        helpers.updateConfig({id: 1, router, debug: true})
+        var metrika = helpers.createMetrika(Vue)
+        helpers.startTracking(metrika)
+    })
+})
+
+describe('tracking', () => {
     it ('development', () => {
-        helpers.updateConfig({id: 1, router, env: 'development'})
+        helpers.updateConfig({id: 1, router, debug: false})
         var metrika = helpers.createMetrika(Vue)
         helpers.startTracking(metrika)
     })

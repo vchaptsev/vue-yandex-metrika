@@ -3,6 +3,7 @@ let config = {
     router: null,
 
     env: 'development',
+    debug: false,
     ignoreRoutes: [],
     skipSamePath: true
 }

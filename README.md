@@ -79,21 +79,16 @@ ___
     this.$metrika.hit(path)
 
 
-### <a name="debug">DEBUG</a>
-
-API calls are replaced by `console.log()`
-
-
 #### Options:
 
-| Name           | Description                                                                                           | Required | Default       |
-| -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------------- |
-| id             | Your tracking id                                                                                      | True     | null          |
-| router         | [Autotracking](#autotracking) if the router is passed, otherwise: [manual tracking](#manual-tracking) | False    | null          |
-| env            | If env is not "production": [DEBUG](#debug)                                                           | False    | development   |
-| ignoreRoutes   | List of ignored routes names                                                                          | False    | []            |
-| skipSamePath   | Do not track a page visit if previous and next routes URLs match                                      | False    | true          |
-
+| Name           | Description                                                                                             | Required | Default     |
+| -------------- | ------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| id             | Your tracking `id`                                                                                      | True     | null        |
+| router         | [Autotracking](#autotracking) if the `router` is passed, otherwise: [manual tracking](#manual-tracking) | False    | null        |
+| env            | API calls are performed only if `env` is "production"                                                   | False    | development |
+| debug          | If `env` is not "production" and `debug` is true: API calls are replaced by `console.log()`             | False    | false       |
+| ignoreRoutes   | List of ignored routes names                                                                            | False    | []          |
+| skipSamePath   | Do not track a page visit if previous and next routes URLs match                                        | False    | true        |
 
 
 [Yandex Metrika]: https://metrika.yandex.ru
