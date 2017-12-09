@@ -49,7 +49,7 @@ export function createMetrika (Vue) {
         if (config.debug) {console.warn('[vue-yandex-metrika] DEBUG is true: you\'ll see all API calls in the console')}
 
         /* istanbul ignore next */
-        return {
+        return Vue.prototype.$metrika = Vue.$metrika = {
             addFileExtension() {if (config.debug) {console.log('[vue-yandex-metrika] addFileExtension:', arguments)}},
             extLink() {if (config.debug) {console.log('[vue-yandex-metrika] extLink:', arguments)}},
             file() {if (config.debug) {console.log('[vue-yandex-metrika] file:', arguments)}},
