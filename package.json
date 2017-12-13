@@ -4,7 +4,7 @@
   "description": "Yandex Metrika plugin for Vue",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Euphe/vue-yandex-metrika"
+    "url": "https://github.com/vchaptsev/vue-yandex-metrika"
   },
   "scripts": {
     "commit": "git-cz",
@@ -47,9 +47,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Euphe/vue-yandex-metrika/issues"
+    "url": "https://github.com/vchaptsev/vue-yandex-metrika/issues"
   },
-  "homepage": "https://github.com/Euphe/vue-yandex-metrika#readme",
+  "homepage": "https://github.com/vchaptsev/vue-yandex-metrika#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
