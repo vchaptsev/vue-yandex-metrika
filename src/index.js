@@ -8,7 +8,7 @@ export default function install (Vue, options = {}) {
     checkConfig() // Check if all required options are presented
 
     loadScript().then(() => { // Load Metrika script
-        metrika = createMetrika(Vue) // Create Metrika
+        const metrika = createMetrika(Vue) // Create Metrika
         startTracking(metrika) // Start autotracking
     })
 }
