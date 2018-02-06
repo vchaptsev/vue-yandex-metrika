@@ -1,4 +1,4 @@
-import config, { defaultConfig } from './config'
+import config from './config'
 
 
 export function updateConfig (params) {
@@ -40,7 +40,11 @@ export function createMetrika (Vue) {
     if (config.env === "production") {
 
         // Creates Metrika
-        return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika({id: config.id})
+        const init = {
+            id: config.id,
+            ...config.options
+        }
+        return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika(init)
 
     } else {
 
