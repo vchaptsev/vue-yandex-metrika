@@ -12,7 +12,6 @@ let config = {
         type: 0,
         webvisor: false,
         triggerEvent: false
-        
     },
     router: null,
     env: 'development',
