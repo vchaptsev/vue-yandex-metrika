@@ -26,15 +26,15 @@
 
 Install with [yarn]:
 
-  ```bash
-  $ yarn add vue-yandex-metrika
-  ```
+```bash
+$ yarn add vue-yandex-metrika
+```
 
 Install with [npm]:
 
-  ```bash
-  $ npm install vue-yandex-metrika --save
-  ```
+```bash
+$ npm install vue-yandex-metrika --save
+```
 
 
 ## Ways to use
@@ -42,42 +42,43 @@ Install with [npm]:
 ### <a name="autotracking">Autotracking</a>
 
 Pass the` VueRouter` instance to the plugin and let it handle everything for you ([Metrika API] is also available):
+```javascript
+// your main.js
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import VueYandexMetrika from 'vue-yandex-metrika'                               
 
-    // your main.js
-    import Vue from 'vue'
-    import VueRouter from 'vue-router'
-    import VueYandexMetrika from 'vue-yandex-metrika'                               
+const router = new VueRouter({...}) // your routes
 
-    const router = new VueRouter({...}) // your routes
-
-    Vue.use(VueYandexMetrika, {
-        id: XXXXXXXX,
-        router: router,
-        env: process.env.NODE_ENV
-        // other options
-    })
-
+Vue.use(VueYandexMetrika, {
+    id: XXXXXXXX,
+    router: router,
+    env: process.env.NODE_ENV
+    // other options
+})
+```
 
 
 ### <a name="manual">Manual tracking</a>
 
 Works without router: [Metrika API]
+```javascript
+// your main.js
+import Vue from 'vue'
+import VueYandexMetrika from 'vue-yandex-metrika'                               
 
-    // your main.js
-    import Vue from 'vue'
-    import VueYandexMetrika from 'vue-yandex-metrika'                               
-
-    Vue.use(VueYandexMetrika, {
-        id: XXXXXXXX,
-        env: process.env.NODE_ENV
-        // other options
-    })
-
+Vue.use(VueYandexMetrika, {
+    id: XXXXXXXX,
+    env: process.env.NODE_ENV
+    // other options
+})
+```
 ___
 
-    // your code
-    this.$metrika.hit(path)
-
+```javascript
+// your code
+this.$metrika.hit(path)
+```
 
 #### Options:
 
