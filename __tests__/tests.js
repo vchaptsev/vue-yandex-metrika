@@ -82,15 +82,6 @@ describe('tracking', () => {
 })
 
 describe('tracking', () => {
-    it ('production', () => {
-        helpers.updateConfig({id: 1, router, env: 'production'})
-        var metrika = helpers.createMetrika(Vue)
-        helpers.startTracking(metrika)
-    })
-})
-
-
-describe('tracking', () => {
     it ('skipSamePath', () => {
         helpers.updateConfig({id: 1, router})
         var metrika = helpers.createMetrika(Vue)
