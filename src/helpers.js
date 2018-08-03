@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import config from './config'
 
 
@@ -11,15 +12,15 @@ export function updateConfig (params) {
 export function checkConfig () {
 
     // Checks if config is valid
-    /* istanbul ignore next */ if (typeof document === 'undefined') {return}
-    /* istanbul ignore next */ if (!config.id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
-    /* istanbul ignore next */ if (!config.router && config.env !== 'production') {return console.warn('[vue-yandex-metrika] Router is not passed, autotracking is disabled')}
+    if (typeof document === 'undefined') {return}
+    if (!config.id) {throw new Error('[vue-yandex-metrika] Please enter a Yandex Metrika tracking ID')}
+    if (!config.router && config.env !== 'production') {return console.warn('[vue-yandex-metrika] Router is not passed, autotracking is disabled')}
 }
 
 export function loadScript () {
 
     // Loads Metrika script
-    return new Promise((resolve, reject) => {/* istanbul ignore next */
+    return new Promise((resolve, reject) => {
         var head = document.head || document.getElementsByTagName('head')[0]
         const script = document.createElement('script')
 
@@ -54,7 +55,6 @@ export function createMetrika (Vue) {
         console.warn('[vue-yandex-metrika] Tracking is disabled, because env option is not "production"')
         if (config.debug) {console.warn('[vue-yandex-metrika] DEBUG is true: you\'ll see all API calls in the console')}
 
-        /* istanbul ignore next */
         return Vue.prototype.$metrika = Vue.$metrika = {
             addFileExtension() {if (config.debug) {console.log('[vue-yandex-metrika] addFileExtension:', arguments)}},
             extLink() {if (config.debug) {console.log('[vue-yandex-metrika] extLink:', arguments)}},
