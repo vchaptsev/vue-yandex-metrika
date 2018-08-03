@@ -25,7 +25,7 @@ export function loadScript () {
 
         script.async = true
         script.charset = 'utf8'
-        script.src = 'https://mc.yandex.ru/metrika/watch.js'
+        script.src = 'https://mc.yandex.ru/metrika/tag.js'
 
         head.appendChild(script)
 
@@ -44,7 +44,9 @@ export function createMetrika (Vue) {
             id: config.id,
             ...config.options
         }
-        return Vue.prototype.$metrika = Vue.$metrika = new Ya.Metrika(init)
+        const metrika = new Ya.Metrika2(init)
+        window[`yaCounter${config.id}`] = metrika
+        return Vue.prototype.$metrika = Vue.$metrika = metrika
 
     } else {
 
