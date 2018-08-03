@@ -82,15 +82,15 @@ this.$metrika.hit(path)
 
 #### Options:
 
-| Name           | Description                                                                                             | Required | Default     |
-| -------------- | ------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| id             | Your tracking `id`                                                                                      | True     | null        |
-| router         | [Autotracking](#autotracking) if the `router` is passed, otherwise: [manual tracking](#manual-tracking) | False    | null        |
-| env            | API calls are performed only if `env` is "production"                                                   | False    | development |
-| debug          | If `env` is not "production" and `debug` is true: API calls are replaced by `console.log()`             | False    | false       |
-| ignoreRoutes   | List of ignored routes names                                                                            | False    | []          |
-| skipSamePath   | Do not track a page visit if previous and next routes URLs match                                        | False    | true        |
-| options        | Original Yandex Metrika [options](https://yandex.ru/support/metrika/code/counter-initialize.html)       | False    | {}          |
+| Name           | Description                                                                                             | Required | Default                                                    |
+| -------------- | ------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------- |
+| id             | Your tracking `id`                                                                                      | True     | null                                                       |
+| router         | [Autotracking](#autotracking) if the `router` is passed, otherwise: [manual tracking](#manual-tracking) | False    | null                                                       |
+| env            | API calls are performed only if `env` is "production"                                                   | False    | development                                                |
+| debug          | If `env` is not "production" and `debug` is true: API calls are replaced by `console.log()`             | False    | false                                                      |
+| ignoreRoutes   | List of ignored routes names                                                                            | False    | []                                                         |
+| skipSamePath   | Do not track a page visit if previous and next routes URLs match                                        | False    | true                                                       |
+| options        | Original Yandex Metrika [options](https://yandex.ru/support/metrika/code/counter-initialize.html)       | False    | {clickmap:true, trackLinks:true, accurateTrackBounce:true} |
 
 [Yandex Metrika]: https://metrika.yandex.ru
 [yarn]: https://yarnpkg.com

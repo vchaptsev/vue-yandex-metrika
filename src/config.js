@@ -1,14 +1,14 @@
 let config = {
     id: null,
     options: {
-        accurateTrackBounce: false,
-        clickmap: false,
+        accurateTrackBounce: true,
+        clickmap: true,
         defer: false,
         ecommerce: false,
         params: [],
         userParams: {},
         trackHash: false,
-        trackLinks: false,
+        trackLinks: true,
         type: 0,
         webvisor: false,
         triggerEvent: false
@@ -19,5 +19,4 @@ let config = {
     ignoreRoutes: [],
     skipSamePath: true
 }
-
 export default config
