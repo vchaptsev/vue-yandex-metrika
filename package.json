@@ -1,6 +1,6 @@
 {
   "name": "vue-yandex-metrika",
-  "version": "0.0.0-development",
+  "version": "1.7.0",
   "description": "Yandex Metrika plugin for Vue",
   "repository": {
     "type": "git",
@@ -12,8 +12,7 @@
     "build": "node ./config/scripts/build.js",
     "prepublish": "node ./config/scripts/build.js",
     "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test:watch": "jest --watch"
   },
   "config": {
     "commitizen": {
