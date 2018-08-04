@@ -7,10 +7,9 @@ notifications:
 node_js:
   - '10'
   - '9'
-before_script: npm prune 
-script: npm run test --coverage && cat ./coverage/lcov.info | coveralls 
-after_success:
-  - npm run semantic-release
+before_script: npm prune
+script: npm run test --coverage && cat ./coverage/lcov.info | coveralls
+after_success: npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
