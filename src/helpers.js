@@ -79,7 +79,7 @@ export function startTracking (metrika) {
         config.router.afterEach(function (to, from) {
 
             // check if route is in ignoreRoutes
-            if (config.ignoreRoutes.includes(to.name)) {return}
+            if (config.ignoreRoutes.indexOf(to.name) > -1) {return}
 
             // do not track page visit if previous and next routes URLs match
             if (config.skipSamePath && to.path == from.path) {return}
