@@ -17,22 +17,17 @@ export function checkConfig () {
     if (!config.router && config.env !== 'production') {return console.warn('[vue-yandex-metrika] Router is not passed, autotracking is disabled')}
 }
 
-export function loadScript () {
+export function loadScript (callback) {
+    var head = document.head || document.getElementsByTagName('head')[0]
+    const script = document.createElement('script')
 
-    // Loads Metrika script
-    return new Promise((resolve, reject) => {
-        var head = document.head || document.getElementsByTagName('head')[0]
-        const script = document.createElement('script')
+    script.async = true
+    script.charset = 'utf8'
+    script.src = 'https://mc.yandex.ru/metrika/tag.js'
 
-        script.async = true
-        script.charset = 'utf8'
-        script.src = 'https://mc.yandex.ru/metrika/tag.js'
+    head.appendChild(script)
 
-        head.appendChild(script)
-
-        script.onload = resolve
-        script.onerror = reject
-    })
+    script.onload = callback
 }
 
 
