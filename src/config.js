@@ -15,6 +15,7 @@ let config = {
     },
     router: null,
     env: 'development',
+    scriptSrc: 'https://mc.yandex.ru/metrika/tag.js',
     debug: false,
     ignoreRoutes: [],
     skipSamePath: true
