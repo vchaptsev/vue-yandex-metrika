@@ -87,6 +87,7 @@ this.$metrika.hit(path)
 | id             | Your tracking `id`                                                                                      | True     | null                                                       |
 | router         | [Autotracking](#autotracking) if the `router` is passed, otherwise: [manual tracking](#manual-tracking) | False    | null                                                       |
 | env            | API calls are performed only if `env` is "production"                                                   | False    | development                                                |
+| scriptSrc      | Src of metrika script to use                                                                            | False    | https://mc.yandex.ru/metrika/tag.js                        |
 | debug          | If `env` is not "production" and `debug` is true: API calls are replaced by `console.log()`             | False    | false                                                      |
 | ignoreRoutes   | List of ignored routes names                                                                            | False    | []                                                         |
 | skipSamePath   | Do not track a page visit if previous and next routes URLs match                                        | False    | true                                                       |
