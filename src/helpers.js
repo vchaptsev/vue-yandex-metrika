@@ -17,7 +17,7 @@ export function checkConfig () {
     if (!config.router && config.env !== 'production') {return console.warn('[vue-yandex-metrika] Router is not passed, autotracking is disabled')}
 }
 
-export function loadScript (callback, scriptSrc) {
+export function loadScript (callback, scriptSrc=config.scriptSrc) {
     var head = document.head || document.getElementsByTagName('head')[0]
     const script = document.createElement('script')
 
