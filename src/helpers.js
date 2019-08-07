@@ -22,7 +22,7 @@ export function loadScript (callback, scriptSrc=config.scriptSrc) {
     const script = document.createElement('script')
 
     script.async = true
-    script.charset = 'utf8'
+    script.charset = 'utf-8'
     script.src = scriptSrc
 
     head.appendChild(script)
