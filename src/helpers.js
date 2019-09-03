@@ -61,7 +61,7 @@ export function createMetrika (Vue) {
             reachGoal() {if (config.debug) {console.log('[vue-yandex-metrika] reachGoal:', arguments)}},
             replacePhones() {if (config.debug) {console.log('[vue-yandex-metrika] replacePhones:', arguments)}},
             setUserID() {if (config.debug) {console.log('[vue-yandex-metrika] setUserID:', arguments)}},
-            userParam() {if (config.debug) {console.log('[vue-yandex-metrika] userParam:', arguments)}}
+            userParams() {if (config.debug) {console.log('[vue-yandex-metrika] userParams:', arguments)}}
         }
     }
 }
